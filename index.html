@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khushal Kawatra's Portfolio</title>
+    <!-- Use a professional and elegant font combination -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* CSS reset and global styles for a clean, minimalist look */
+        :root {
+            --color-background: #f7f7f7; /* Pure white */
+            --color-text-dark: #1A237E; /* A deep, dark blue */
+            --color-text-light: #5A6A92; /* A softer, medium blue */
+            --color-accent: #6a0dad; /* A vibrant purple */
+            --color-border: #E8EAF6; /* A very light blue for borders */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--color-text-dark);
+            background-color: var(--color-background);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+        }
+
+        /* Container to center content and add consistent padding */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header and Navigation */
+        header {
+            padding: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--color-text-dark);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--color-text-light);
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--color-accent);
+        }
+
+        /* Hero Section */
+        #hero {
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        #hero h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+            color: var(--color-text-light);
+        }
+
+        /* About Section */
+        #about {
+            padding: 4rem 0;
+            text-align: center;
+            background-color: #f7f7f7; /* Off-white to add slight contrast */
+        }
+
+        #about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        #about p {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Portfolio Grid Section */
+        #portfolio {
+            padding: 4rem 0;
+        }
+
+        #portfolio h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Use CSS Grid for a fluid and responsive gallery */
+        .art-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .art-item {
+            background-color: #fff;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .art-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .art-item img {
+            width: 100%;
+            height: 300px; /* Fixed height for visual consistency */
+            object-fit: cover; /* Ensures images fill the space without distortion */
+            display: block;
+        }
+
+        .art-item-info {
+            padding: 1rem;
+        }
+
+        .art-item-info h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: var(--color-text-dark);
+        }
+
+        .art-item-info p {
+            margin: 0.5rem 0 0;
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 4rem 0;
+            background-color: #f7f7f7; /* Off-white to add slight contrast */
+            text-align: center;
+        }
+
+        #contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            box-sizing: border-box; /* To include padding in the element's total width and height */
+            font-family: inherit;
+        }
+
+        button {
+            background-color: var(--color-text-dark);
+            color: var(--color-background);
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: var(--color-accent);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--color-text-light);
+            border-top: 1px solid var(--color-border);
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="container">
+        <a href="#hero" class="logo">Khushal Kawatra</a>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section with a clean, centered layout -->
+        <section id="hero" class="container">
+            <h1>Creativity is a Wild Mind & a Disciplined Eye.</h1>
+            <p>Welcome to the art portfolio of Khushal Kawatra.</p>
+        </section>
+
+        <!-- About Section with a fluid text block -->
+        <section id="about">
+            <div class="container">
+                <h2>About the Artist</h2>
+                <p>
+                    Hello! I'm Khushal, an 8th-grade student with a deep passion for art. 
+                    I believe that art is a journey of exploration and expression. My work is inspired by nature, emotions, 
+                    and the vibrant world around me. This portfolio is a curated collection of my creations, from traditional 
+                    drawings to digital experiments.
+                </p>
+            </div>
+        </section>
+
+        <!-- Portfolio Grid Section with high-quality example images -->
+        <section id="portfolio" class="container">
+            <h2>Featured Artwork</h2>
+            <div class="art-grid">
+                <!-- Art Item 1 - Example of a painting -->
+                <div class="art-item">
+                    <img src="https://images.unsplash.com/photo-1549887707-164775d7149a?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Abstract oil painting with brush strokes.">
+                    <div class="art-item-info">
+                        <h3>Abstract Composition</h3>
+                        <p>Oil on canvas, 2024</p>
+                    </div>
+                </div>
+
+                <!-- Art Item 2 - Example of a detailed drawing -->
+                <div class="art-item">
+                    <img src="https://images.unsplash.com/photo-1559885880-9276949b2f67?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Pencil drawing of a face with delicate lines.">
+                    <div class="art-item-info">
+                        <h3>Portrait in Graphite</h3>
+                        <p>Graphite on paper, 2023</p>
+                    </div>
+                </div>
+
+                <!-- Art Item 3 - Example of a digital piece -->
+                <div class="art-item">
+                    <img src="https://images.unsplash.com/photo-1556056501-c9769315d19c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Digital art illustration of a colorful landscape.">
+                    <div class="art-item-info">
+                        <h3>Neon Cityscape</h3>
+                        <p>Digital illustration, 2024</p>
+                    </div>
+                </div>
+
+                <!-- Art Item 4 - Another example -->
+                <div class="art-item">
+                    <img src="https://images.unsplash.com/photo-1548658826-5b48e35f9922?q=80&w=2834&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Painting of flowers with bold brushstrokes.">
+                    <div class="art-item-info">
+                        <h3>Vibrant Floral Study</h3>
+                        <p>Acrylic on canvas, 2023</p>
+                    </div>
+                </div>
+
+                <!-- Art Item 5 -->
+                <div class="art-item">
+                    <img src="https://images.unsplash.com/photo-1559885994-118e788e2528?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Close-up of a statue's eye.">
+                    <div class="art-item-info">
+                        <h3>A Glimpse into the Past</h3>
+                        <p>Clay sculpture, 2024</p>
+                    </div>
+                </div>
+
+                <!-- Art Item 6 -->
+                <div class="art-item">
+                    <img src="https://images.unsplash.com/photo-1563273188-062e08ab158c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Abstract painting with geometric shapes.">
+                    <div class="art-item-info">
+                        <h3>Geometric Abstraction</h3>
+                        <p>Mixed media, 2023</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section with a simple form -->
+        <section id="contact">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Khushal Kawatra. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
